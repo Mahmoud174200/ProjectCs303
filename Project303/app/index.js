@@ -4,6 +4,7 @@ export default function Page() {
   return (
     <View style={styles.container}>
       <Text>El slamao 3lekom ya regala</Text>
+      <Text>El slamao 3lekom ya regala</Text>
     </View>
   );
 }
