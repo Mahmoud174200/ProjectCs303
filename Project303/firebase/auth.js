@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { collection} from "firebase/firestore";
 import { router } from "expo-router";
-import { auth , db} from "./config";
+import { auth , db} from "./Config";
 import { CreateUser } from './users';
 //register
 const signUpHandler = async (email, firstName, lastName, password, error) => {
