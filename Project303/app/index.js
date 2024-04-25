@@ -1,11 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
-import Home from "../screens/home";
-import Product from "../screens/Product"
-
-
+import UsersScreen from "../screens/user";
 export default function Page() {
   return (
-    <Product/>
+<UsersScreen></UsersScreen>
   );
 }
 
