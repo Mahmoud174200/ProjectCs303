@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Pressable } from 'react-native';
 
-const EditProfile = ({ userData, updateUserData }) => {
-  const [name, setName] = useState(userData.name);
-  const [dateOfBirth, setDateOfBirth] = useState(userData.dateOfBirth);
-  const [email, setEmail] = useState(userData.email);
-  const [username, setUsername] = useState(userData.username);
+const EditProfile = ({ userData = {}, updateUserData }) => {
+  const [name, setName] = useState(userData.name || '');
+  const [dateOfBirth, setDateOfBirth] = useState(userData.dateOfBirth || '');
+  const [email, setEmail] = useState(userData.email || '');
+  const [username, setUsername] = useState(userData.username || '');
+  const [password, setPassword] = useState(userData.password || '');
 
   const handleSubmit = () => {
     const updatedUserData = {
       name,
       dateOfBirth,
       email,
-      username
+      username,
+      password
     };
     updateUserData(updatedUserData);
   };
@@ -44,9 +46,15 @@ const EditProfile = ({ userData, updateUserData }) => {
         value={username}
         onChangeText={setUsername}
       />
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
+      />
+      <Pressable style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Save</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 };

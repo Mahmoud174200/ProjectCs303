@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, FlatList, Pressable,Alert } from 'react-native';
-import img from '../assets/images/th_1.jpeg';
+import img from '../assets/images/th_1.jpg';
 
 const Cart = () => {
     const [cartData, setCartData] = useState([
@@ -65,7 +65,7 @@ const Cart = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Image style={styles.logo} source={require('../assets/images/th.jpeg')} />
+                <Image style={styles.logo} source={require('../assets/images/th.jpg')} />
                 <Text style={styles.title}>My Cart</Text>
             </View>
             <View style={styles.content}>

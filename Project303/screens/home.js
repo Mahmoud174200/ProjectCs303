@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { Link } from 'expo-router';
 
 const Home = () => {
   const [adIndex, setAdIndex] = useState(1);
@@ -8,6 +9,7 @@ const Home = () => {
   const handleMenuPress = () => {
     setShowMenu(!showMenu);
   };
+
   const ads = [
     require("../assets/images/ad1.jpg"),
     require("../assets/images/ad2.jpg"),
@@ -32,17 +34,13 @@ const Home = () => {
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.container1}>
-        <TouchableOpacity onPress={handleMenuPress}>
-            <Image
-              style={{ width: 25, height: 25 }}
-              source={require("../assets/images/menu.png")}
-            />
-          </TouchableOpacity>
-          <View style={styles.container2}>
+          <Link to="/screens/Cart">
             <Image
               style={{ width: 25, height: 25, marginRight: 20 }}
               source={require("../assets/images/shopping-cart.png")}
             />
+          </Link>
+          <View style={styles.container2}>
             <Image
               style={{ width: 25, height: 25 }}
               source={require("../assets/images/search.png")}
@@ -61,116 +59,31 @@ const Home = () => {
             </TouchableOpacity>
           </View>
         )}
-        
-        
-        
-          
-        </View>
-        <View style={{ width: "100%", height: 200, alignItems: "center" }}>
-          <View style={{ width: "100%", height: 200, marginRight: 20 }}>
-            <Image
-              style={{ width: "100%", height: 200, marginRight: 20 }}
-              source={ads[adIndex]}
-            />
-            <TouchableOpacity onPress={handlePrevAd} style={styles.arrowButton}>
+      </View>
+      <View style={{ width: "100%", height: 200, alignItems: "center" }}>
+        <View style={{ width: "100%", height: 200, marginRight: 20 }}>
+          <Image
+            style={{ width: "100%", height: 200, marginRight: 20 }}
+            source={ads[adIndex]}
+          />
+          <TouchableOpacity onPress={handlePrevAd} style={styles.arrowButton}>
             <Text>{"<"}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleNextAd} style={[styles.arrowButton, { right: 0 }]}>
-              <Text>{">"}</Text>
-            </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleNextAd} style={[styles.arrowButton, { right: 0 }]}>
+            <Text>{">"}</Text>
+          </TouchableOpacity>
         </View>
-        
-        <View>
-          <View style={{ marginTop: 40, padding: 15 }}>
-            <Text style={{ fontSize: 25, fontWeight: 600, color: "#264143" }}>
-              Product
-            </Text>
-          </View>
-          <View style={{ width: "100%", flexDirection: "row", justifyContent: "center", flexWrap: "wrap" }}>
-            
-            
-
-            <View style={{ width:150,height:250,backgroundColor:"#f6f6f6",borderRadius:10,alignItems:"center",margin:15}}>
-                <Image
-                    style={{width:"100%", height: "70%" ,borderRadius:10,margin:10}}
-                    source={require("../assets/images/productdemo.jpg")}
-                />
-                <Text>
-                    product name  Price
-                </Text>
-                <Text>
-                    add to cart
-                </Text>
-            </View>
-            <View style={{ width:150,height:250,backgroundColor:"#f6f6f6",borderRadius:10,alignItems:"center",margin:15}}>
-                <Image
-                    style={{width:"100%", height: "70%" ,borderRadius:10,margin:10}}
-                    source={require("../assets/images/productdemo.jpg")}
-                />
-                <Text>
-                    product name  Price
-                </Text>
-                <Text>
-                    add to cart
-                </Text>
-            </View>
-            <View style={{ width:150,height:250,backgroundColor:"#f6f6f6",borderRadius:10,alignItems:"center",margin:15}}>
-                <Image
-                    style={{width:"100%", height: "70%" ,borderRadius:10,margin:10}}
-                    source={require("../assets/images/productdemo.jpg")}
-                />
-                <Text>
-                    product name  Price
-                </Text>
-                <Text>
-                    add to cart
-                </Text>
-            </View>
-            <View style={{ width:150,height:250,backgroundColor:"#f6f6f6",borderRadius:10,alignItems:"center",margin:15}}>
-                <Image
-                    style={{width:"100%", height: "70%" ,borderRadius:10,margin:10}}
-                    source={require("../assets/images/productdemo.jpg")}
-                />
-                <Text>
-                    product name  Price
-                </Text>
-                <Text>
-                    add to cart
-                </Text>
-            </View>
-            <View style={{ width:150,height:250,backgroundColor:"#f6f6f6",borderRadius:10,alignItems:"center",margin:15}}>
-                <Image
-                    style={{width:"100%", height: "70%" ,borderRadius:10,margin:10}}
-                    source={require("../assets/images/productdemo.jpg")}
-                />
-                <Text>
-                    product name  Price
-                </Text>
-                <Text>
-                    add to cart
-                </Text>
-            </View>
-            <View style={{ width:150,height:250,backgroundColor:"#f6f6f6",borderRadius:10,alignItems:"center",margin:15}}>
-                <Image
-                    style={{width:"100%", height: "70%" ,borderRadius:10,margin:10}}
-                    source={require("../assets/images/productdemo.jpg")}
-                />
-                <Text>
-                    product name  Price
-                </Text>
-                <Text>
-                    add to cart
-                </Text>
-            </View>
-
-
-
-
-
-
-          </View>
-        </View>      
+      </View>
+      <View>
+        <View style={{ marginTop: 40, padding: 15 }}>
+          <Text style={{ fontSize: 25, fontWeight: 600, color: "#264143" }}>
+            Product
+          </Text>
+        </View>
+        <View style={{ width: "100%", flexDirection: "row", justifyContent: "center", flexWrap: "wrap" }}>
+          {/* Product Cards */}
+        </View>
+      </View>      
     </ScrollView>
   );
 };
@@ -213,12 +126,3 @@ const styles = StyleSheet.create({
 });
 
 export default Home;
-
-
-
-
-
-
-
-
-

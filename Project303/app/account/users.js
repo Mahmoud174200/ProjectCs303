@@ -1,7 +1,7 @@
-import Users from "../../screens/users";
+// import Users from "../../screens/users";
 
-export default function Page() {
-    return (
-        <Users></Users>
-    );
-}
+// export default function Page() {
+//     return (
+//         <Users></Users>
+//     );
+// }
