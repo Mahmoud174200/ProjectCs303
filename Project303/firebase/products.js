@@ -54,7 +54,7 @@ const getAllProducts = async () => {
 const getProductById = async (productId) => {
     try {
       const productDocRef = doc(db, "products", productId);
-      const productDocSnapshot = await getDoc(productDocRef);
+      const productDocSnapshot = await getDocs(productDocRef);
       if (productDocSnapshot.exists()) {
         return { ...productDocSnapshot.data(), id: productDocSnapshot.id };
       } else {
