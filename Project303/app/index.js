@@ -1,11 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
-
+import UsersScreen from "../screens/user";
 export default function Page() {
   return (
-    <View style={styles.container}>
-      <Text>El slamao 3lekom ya regala</Text>
-      <Text>El slamao 3lekom ya regala</Text>
-    </View>
+<UsersScreen></UsersScreen>
   );
 }
 

@@ -6,10 +6,11 @@ import {
   updateEmail,
   updatePassword,
 } from "firebase/auth";
-import { collection} from "firebase/firestore";
+import { collection } from "firebase/firestore";
 import { router } from "expo-router";
-import { auth , db} from "./Config";
-import { CreateUser } from './users';
+import { auth, db } from "./Config";
+import { CreateUser } from "./users";
+import { Alert } from "react-native";
 //register
 const signUpHandler = async (email, firstName, lastName, password, error) => {
   try {
@@ -19,6 +20,7 @@ const signUpHandler = async (email, firstName, lastName, password, error) => {
       firstName: firstName,
       lastName: lastName,
       uuid: cred.user.uid,
+      isadmin: false,
     };
     CreateUser(data);
     console.log(cred.user.email);
@@ -47,22 +49,21 @@ const signOutHandler = async () => {
   router.replace("/account/login");
 };
 
-const resetPasswordHandler = async (email, error , status) => {
+const resetPasswordHandler = async (email, error) => {
   try {
     await sendPasswordResetEmail(auth, email);
-    status("The reset password email has been sent. check your email inbox!");
+    Alert.alert("The reset password email has been sent. check your email inbox!");
     error("");
   } catch (err) {
     const message = err.message.substring(err.message.indexOf(":"));
     error(message.substring(2));
-    status("");
     console.log(err.message);
   }
 };
 //updates
-const updateUserEmail = async (user,email, error) => {
+const updateUserEmail = async (user, email, error) => {
   try {
-    await updateEmail(user,email);
+    await updateEmail(user, email);
     error("");
   } catch (err) {
     const message = err.message.substring(err.message.indexOf(":"));
@@ -70,7 +71,7 @@ const updateUserEmail = async (user,email, error) => {
     console.log(err.message);
   }
 };
-const updateUserPassword = async (user,password, error) => {
+const updateUserPassword = async (user, password, error) => {
   try {
     await updatePassword(user, password);
     error("");
