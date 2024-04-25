@@ -1,12 +1,9 @@
-// Import firestore functions
 import { auth, db } from "./Config";
 
 import { collection, addDoc, updateDoc, deleteDoc, query, where, getDocs, doc } from "firebase/firestore";
 
-// Define collection reference
 const productCollectionReference = collection(db, "products");
 
-// Function to create a product
 const createProduct = async (data) => {
   try {
     const newProduct = await addDoc(productCollectionReference, data);
@@ -27,7 +24,6 @@ const updateProduct = async (data, productId) => {
   }
 };
 
-// Function to delete a product
 const deleteProduct = async (productId) => {
   try {
     const productDocRef = doc(db, "products", productId);
@@ -38,7 +34,6 @@ const deleteProduct = async (productId) => {
   }
 };
 
-// Function to retrieve all products
 const getAllProducts = async () => {
   try {
     const querySnapshot = await getDocs(productCollectionReference);
