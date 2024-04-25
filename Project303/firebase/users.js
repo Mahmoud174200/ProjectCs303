@@ -7,6 +7,7 @@ import {
   onSnapshot,
   getDocs,
   updateDoc,
+  deleteDoc,
   doc,
 } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
@@ -66,6 +67,7 @@ const deleteUser = async (id) => {
   const docReference = doc(db, "users", id);
   try {
     await deleteDoc(docReference);
+    console.log("Success to Delete Users");
   } catch (err) {
     console.log("deleteUser: ", err.message);
   }
