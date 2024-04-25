@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
+import Home from "../screens/home";
+import Product from "../screens/Product"
+
 
 export default function Page() {
   return (
-    <View style={styles.container}>
-      <Text>El slamao 3lekom ya regala</Text>
-      <Text>El slamao 3lekom ya regala</Text>
-    </View>
+    <Product/>
   );
 }
 
